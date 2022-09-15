@@ -7,8 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Pagination from "./Pagination";
 
 function Home() {
-  const [showperpage, setShowPerPage] = useState(4);
-
+  const [showperpage] = useState(4);
   const [pagination, setPagination] = useState({
     start: 0,
     end: showperpage,
@@ -19,7 +18,6 @@ function Home() {
   };
 
   let history = useNavigate();
-
   const hendelEdit = (id, name, age) => {
     localStorage.setItem("Name", name);
     localStorage.setItem("Age", age);
@@ -44,7 +42,8 @@ function Home() {
             <tr>
               <th>Name</th>
               <th>Age</th>
-              <th>Action</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -65,7 +64,8 @@ function Home() {
                           EDIT
                         </Button>
                       </Link>
-                      &nbsp;
+                    </td>
+                    <td>
                       <Button
                         className="btn btn-danger"
                         onClick={() => hendelDelete(item.id)}
@@ -78,7 +78,7 @@ function Home() {
                 );
               })
             ) : (
-              <h3 className="text-center">No Record Found</h3>
+              <h3 className="text-center">😔 No Record Found</h3>
             )}
           </tbody>
         </Table>

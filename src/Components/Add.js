@@ -45,7 +45,11 @@ function Add() {
               onChange={(e) => setAge(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <Button onClick={(e) => handleSubmit(e)} type="submit">
+          <Button
+            className="btn btn-primary"
+            onClick={(e) => handleSubmit(e)}
+            type="submit"
+          >
             Submit
           </Button>
         </form>
